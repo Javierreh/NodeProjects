@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	h1.bg-dark.text-white.p-4.text-center CHAT
+	.container
+		h6#numUsers Usuarios conectados: 0
+		ul#messages.list-group.mb-2
+		.row.m-0
+			.col-md-4.p-0.mt-3.pr-md-3
+				div.input-group.input-group-lg
+					div.input-group-prepend
+						span.input-group-text Nombre
+					input.form-control#nick(type="text")
+			.col-md-8.p-0.mt-3
+				div.input-group.input-group-lg
+					div.input-group-prepend
+						span.input-group-text Mensaje
+					input.form-control#message(type="text")
+		.text-center
+			button#btnSend.btn.btn-primary.mt-4 Enviar mensaje
+
+	script(src="/socket.io/socket.io.js")
+	script(src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous")
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js")
+	script(src="/javascripts/main.js")

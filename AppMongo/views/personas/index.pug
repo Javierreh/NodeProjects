@@ -1,0 +1,19 @@
+extends ../layout.pug
+
+block content
+	h2.text-center.mb-3 Lista de Personas
+	table.table.table-bordered
+		tr.bg-danger.text-white
+			th Nombre Completo
+			th Edad
+			th Empresa
+			th Coche
+			th 
+		each pers in arrPers
+			tr
+				td= pers.nombre_completo
+				td= pers.edad
+				td= pers.empresa
+				td= pers.coche
+				td
+					a.btn.btn-primary(href="/personas/" + pers._id) Ver más

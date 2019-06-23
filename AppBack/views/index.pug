@@ -1,0 +1,58 @@
+extends layout.pug
+
+mixin lista(titulo, elementos)
+	h6 #{titulo}
+	ul
+		each elem in elementos
+			if elem.nombre
+				li #{elem.nombre} #{elem.apellidos} #{elem.edad}
+			else
+				li= elem
+block titulo
+	title Título del index
+
+block contenido
+	| Esto es un texto plano
+	h2 Cabecera H2
+	p Párrafo debajo de la cabecera
+	.primero
+		p Párrafo dentro del div
+		a(href="http://www.google.es", target="_blank", class="enlace") Google.es
+		br
+		a#idEnlace.enlace.rojo(href="www.neoland.es") Neoland.es
+	.segundo
+		p Párrafo dentro del segundo div
+	.tercero
+		h4= title
+		h5 El valor del título es: #{title}
+		p(class=estilos) Párrafo con estilos
+	// Comentario en el HTML
+	//- Comentario que no aparece en el HTML
+	.cuarto
+		ul
+			- for(let i = 0; i < 5; i++)
+				li Opción #{i}
+	.quinto
+		p.
+			Texto <b>dentro</b> del Párrafo
+			Otra cosa
+	.sexto
+		ol
+			each pers in personas
+				li #{pers.nombre} #{pers.apellidos} #{pers.edad}
+				//- li= pers.nombre + ' ' + pers.apellidos + ' ' + pers.edad
+		ol
+			each num in [1,2,3,4,5]
+				li= num
+			else
+				p No hay números disponibles
+		ol
+			each estilo in estilos
+				li= estilo
+	.septimo
+		+lista('Primera lista', ['primer', 'segun', 'tercer'])
+		+lista('Segunda lista', estilos)
+		+lista('Lista de personas con mixin', personas)
+	script.
+		let res = prompt('Que me cuentas?');
+		console.log(res);

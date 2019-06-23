@@ -1,0 +1,16 @@
+extends layout.pug
+block contenido
+	form(action="/personas/create", method="POST", class="w-50 m-auto")
+		.form-group
+			label Nombre
+			input.form-control(type="text", name="nombre")
+		.form-group
+			label Apellidos
+			input.form-control(type="text", name="apellidos")
+		.form-group
+			label Edad
+			input.form-control(type="text", name="edad")
+		.form-group
+			label Dirección
+			input.form-control(type="text", name="direccion")
+		input.btn.btn-block.btn-primary(type="submit", value="Enviar")
